@@ -1,0 +1,32 @@
+<article class="article-item" *ngIf="pelicula">
+    <div class="image-wrap">
+        <img src="{{pelicula.image}}" alt="{{pelicula.title}}" />
+    </div>
+
+    <h2 *ngIf="indice" > {{indice}} {{pelicula.title}}</h2>
+    <span class="date">
+        Hace 5 minutos
+    </span>
+<!--implementacion de ng class tambien si le queremos poner una clase no creada, seria
+<span class="year" [style.background]="pelicula.year > 2019 ? 'green' : 'red' "-->
+<!--Tambien de esta manera con clases no creadas o como en el ej final-->
+<!-- <span class="year" [class.year-green]="pelicula.year > 2019 "
+                   [class.year-red]="pelicula.year <= 2019 "-->
+
+<span class="year" 
+                   [ngClass]="{
+                       'year-green': pelicula.year > 2019,
+                       'year-red': pelicula.year <= 2019
+                   }" 
+                    >
+        {{pelicula.year}}
+    </span>
+
+    <a href="#">Leer más</a>
+
+    <button (click)="seleccionar($event,pelicula)" >
+        Seleccionar como favorita
+    </button>
+
+    <div class="clearfix"></div>
+</article>

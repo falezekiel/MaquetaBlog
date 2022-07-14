@@ -1,0 +1,30 @@
+<!--comunicacion entre componente, que el slider cambie depende la ruta donde se encuentre,
+     1 pasar la propiedad como la siguiente... si no tengo la variable creada
+    como aqui home text en el componente, poner el texto entre 2 comillas-->
+
+<app-slider
+
+[nombre]="'Blog'"
+[size]="'small'"
+
+></app-slider>
+
+<div class="center">
+    <section id="content">
+
+        <h1 class="subheader">Blog</h1>
+
+        <!--asi se muestra lo obtenido del backend
+
+        <div class="article-item" *ngFor="let article of articles">
+
+                <h2>{{article.title}}</h2>
+        </div> -->
+<!-- asi llamamos a los articulos para mostrarlos-->
+      <app-articles [articles]="articles"></app-articles>
+
+    </section>
+
+    <app-sidebar></app-sidebar>
+
+</div>
